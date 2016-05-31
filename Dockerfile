@@ -1,10 +1,8 @@
 FROM gliderlabs/alpine:3.3
+
+ADD bin/logspout /bin/logspout
 ENTRYPOINT ["/bin/logspout"]
-VOLUME /mnt/routes
-EXPOSE 80
 
-COPY . /src
-RUN cd /src && ./build.sh "$(cat VERSION)"
-
-ONBUILD COPY ./modules.go /src/modules.go
-ONBUILD RUN cd /src && ./build.sh "$(cat VERSION)-custom"
+#VOLUME /mnt/routes
+## backwards compatibility
+RUN ln -fs /tmp/docker.sock /var/run/docker.sock

@@ -1,8 +1,8 @@
 package tls
 
 import (
-	"net"
 	"crypto/tls"
+	"net"
 
 	"github.com/gliderlabs/logspout/adapters/raw"
 	"github.com/gliderlabs/logspout/router"
@@ -22,7 +22,7 @@ func rawTLSAdapter(route *router.Route) (router.LogAdapter, error) {
 type tlsTransport int
 
 func (_ *tlsTransport) Dial(addr string, options map[string]string) (net.Conn, error) {
-	conn, err := tls.Dial("tcp",  addr, nil)
+	conn, err := tls.Dial("tcp", addr, nil)
 	if err != nil {
 		return nil, err
 	}

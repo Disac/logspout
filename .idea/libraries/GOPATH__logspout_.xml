@@ -1,0 +1,84 @@
+<component name="libraryTable">
+  <library name="GOPATH &lt;logspout&gt;">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/../../../gitlab.alibaba-inc.com" />
+      <root url="file://$PROJECT_DIR$/../.." />
+      <root url="file://$PROJECT_DIR$/../../../golang.org" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+    <excluded>
+      <root url="file://$PROJECT_DIR$/../../Sirupsen/logrus/.git" />
+      <root url="file://$PROJECT_DIR$/../../docker/docker/pkg/tarsum/testdata" />
+      <root url="file://$PROJECT_DIR$/../../docker/docker/docs/reference/api/_static" />
+      <root url="file://$PROJECT_DIR$/../../../golang.org/x/tour/.git" />
+      <root url="file://$PROJECT_DIR$/../../Go-zh/tools/go/callgraph/rta/testdata" />
+      <root url="file://$PROJECT_DIR$/../../opencontainers/runc/.git" />
+      <root url="file://$PROJECT_DIR$/../../../golang.org/x/sys/.git" />
+      <root url="file://$PROJECT_DIR$/../../Go-zh/tools/go/gcimporter/testdata" />
+      <root url="file://$PROJECT_DIR$/../../logspout/.idea" />
+      <root url="file://$PROJECT_DIR$/../../docker/docker/hack/make/.resources-windows" />
+      <root url="file://$PROJECT_DIR$/../../docker/docker/hack/make/.build-deb" />
+      <root url="file://$PROJECT_DIR$/../../Go-zh/tools/go/gccgoimporter/testdata" />
+      <root url="file://$PROJECT_DIR$/../../docker/docker/hack/make/.build-rpm" />
+      <root url="file://$PROJECT_DIR$/../../Go-zh/tools/go/ssa/testdata" />
+      <root url="file://$PROJECT_DIR$/../../docker/.idea" />
+      <root url="file://$PROJECT_DIR$/../../docker/docker/pkg/archive/testdata" />
+      <root url="file://$PROJECT_DIR$/../../fsouza/go-dockerclient/.git" />
+      <root url="file://$PROJECT_DIR$/../../Go-zh/tools/cmd/stringer/testdata" />
+      <root url="file://$PROJECT_DIR$/../../../gitlab.alibaba-inc.com/cos/certificate/.git" />
+      <root url="file://$PROJECT_DIR$/../../gorilla/mux/.git" />
+      <root url="file://$PROJECT_DIR$/../../../gitlab.alibaba-inc.com/cos/region-controller/.idea" />
+      <root url="file://$PROJECT_DIR$/../../hashicorp/go-cleanhttp/.git" />
+      <root url="file://$PROJECT_DIR$/../../progrium/go-extpoints/.git" />
+      <root url="file://$PROJECT_DIR$/../../../golang.org/x/net/http2/testdata" />
+      <root url="file://$PROJECT_DIR$" />
+      <root url="file://$PROJECT_DIR$/../../../gitlab.alibaba-inc.com/cos/etcd/integration/testdata" />
+      <root url="file://$PROJECT_DIR$/../../Go-zh/tools/go/ssa/interp/testdata" />
+      <root url="file://$PROJECT_DIR$/../../../gitlab.alibaba-inc.com/cos/logspout/Godeps/_workspace" />
+      <root url="file://$PROJECT_DIR$/../../../gitlab.alibaba-inc.com/cos/region-controller/.git" />
+      <root url="file://$PROJECT_DIR$/.idea" />
+      <root url="file://$PROJECT_DIR$/../../Go-zh/tools/go/loader/testdata" />
+      <root url="file://$PROJECT_DIR$/../../gorilla/context/.git" />
+      <root url="file://$PROJECT_DIR$/../../Go-zh/tools/refactor/eg/testdata" />
+      <root url="file://$PROJECT_DIR$/../../Go-zh/tools/cmd/callgraph/testdata" />
+      <root url="file://$PROJECT_DIR$/../../Go-zh/tools/cmd/vet/testdata" />
+      <root url="file://$PROJECT_DIR$/../../Go-zh/tour/.git" />
+      <root url="file://$PROJECT_DIR$/../../Go-zh/tools/cmd/fiximports/testdata" />
+      <root url="file://$PROJECT_DIR$/../../docker/docker/.idea" />
+      <root url="file://$PROJECT_DIR$/../../../gitlab.alibaba-inc.com/cos/golang_verify/.idea" />
+      <root url="file://$PROJECT_DIR$/.git" />
+      <root url="file://$PROJECT_DIR$/../../Go-zh/tools/go/pointer/testdata" />
+      <root url="file://$PROJECT_DIR$/../../Go-zh/tools/go/ssa/ssautil/testdata" />
+      <root url="file://$PROJECT_DIR$/../../docker/docker/.git" />
+      <root url="file://$PROJECT_DIR$/../../gedex/inflector/.git" />
+      <root url="file://$PROJECT_DIR$/../../../golang.org/x/net/.git" />
+      <root url="file://$PROJECT_DIR$/../../../gitlab.alibaba-inc.com/cos/etcd/Godeps/_workspace" />
+      <root url="file://$PROJECT_DIR$/../../../gitlab.alibaba-inc.com/cos/troopers/Godeps/_workspace" />
+      <root url="file://$PROJECT_DIR$/../../docker/docker/.github" />
+      <root url="file://$PROJECT_DIR$/../../Go-zh/tools/oracle/testdata" />
+      <root url="file://$PROJECT_DIR$/../../../gitlab.alibaba-inc.com/cos/logspout/.git" />
+      <root url="file://$PROJECT_DIR$/../../../gitlab.alibaba-inc.com/cos/commander/Godeps/_workspace" />
+      <root url="file://$PROJECT_DIR$/../../gliderlabs/logspout/.git" />
+      <root url="file://$PROJECT_DIR$/../../../golang.org/x/net/html/testdata" />
+      <root url="file://$PROJECT_DIR$/../../../gitlab.alibaba-inc.com/cos/etcd/.git" />
+      <root url="file://$PROJECT_DIR$/../../../gitlab.alibaba-inc.com/cos/troopers/.git" />
+      <root url="file://$PROJECT_DIR$/../../opencontainers/runc/Godeps/_workspace" />
+      <root url="file://$PROJECT_DIR$/../../Go-zh/tools/cmd/cover/testdata" />
+      <root url="file://$PROJECT_DIR$/../../../gitlab.alibaba-inc.com/cos/troopers/.idea" />
+      <root url="file://$PROJECT_DIR$/../../docker/go-units/.git" />
+      <root url="file://$PROJECT_DIR$/../../Go-zh/tools/go/types/testdata" />
+      <root url="file://$PROJECT_DIR$/../../../golang.org/x/net/html/charset/testdata" />
+      <root url="file://$PROJECT_DIR$/../../docker/engine-api/.git" />
+      <root url="file://$PROJECT_DIR$/vendor/src/github.com/opencontainers/runc/Godeps/_workspace" />
+      <root url="file://$PROJECT_DIR$/../../../gitlab.alibaba-inc.com/cos/etcd/.idea" />
+      <root url="file://$PROJECT_DIR$/../../../gitlab.alibaba-inc.com/cos/region-controller/Godeps/_workspace" />
+      <root url="file://$PROJECT_DIR$/../../../gitlab.alibaba-inc.com/cos/logspout/.idea" />
+      <root url="file://$PROJECT_DIR$/../../../gitlab.alibaba-inc.com/cos/certificate/.idea" />
+      <root url="file://$PROJECT_DIR$/../../Go-zh/tools/.git" />
+      <root url="file://$PROJECT_DIR$/../../../gitlab.alibaba-inc.com/cos/commander/.git" />
+      <root url="file://$PROJECT_DIR$/../../Go-zh/tools/go/callgraph/cha/testdata" />
+      <root url="file://$PROJECT_DIR$/../../docker/go-connections/.git" />
+    </excluded>
+  </library>
+</component>

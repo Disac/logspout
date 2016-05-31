@@ -56,11 +56,11 @@ func normalID(id string) string {
 func ignoreContainer(container *docker.Container) bool {
 	for _, kv := range container.Config.Env {
 		kvp := strings.SplitN(kv, "=", 2)
-		if len(kvp) == 2 && kvp[0] == "LOGSPOUT" && strings.ToLower(kvp[1]) == "ignore" {
-			return true
+		if len(kvp) == 2 && kvp[0] == "ACSLOGSPOUT" && strings.ToLower(kvp[1]) != "" {
+			return false
 		}
 	}
-	return false
+	return true
 }
 
 type update struct {

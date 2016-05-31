@@ -3,9 +3,9 @@ package router
 
 import (
 	"reflect"
-	"sync"
-	"strings"
 	"runtime"
+	"strings"
+	"sync"
 )
 
 var registry = struct {
@@ -161,7 +161,6 @@ func (ep *httpHandlerExt) Names() []string {
 	return names
 }
 
-
 // AdapterFactory
 
 var AdapterFactories = &adapterFactoryExt{
@@ -203,7 +202,6 @@ func (ep *adapterFactoryExt) Names() []string {
 	}
 	return names
 }
-
 
 // AdapterTransport
 
@@ -247,7 +245,6 @@ func (ep *adapterTransportExt) Names() []string {
 	return names
 }
 
-
 // Job
 
 var Jobs = &jobExt{
@@ -290,7 +287,6 @@ func (ep *jobExt) Names() []string {
 	return names
 }
 
-
 // LogRouter
 
 var LogRouters = &logRouterExt{
@@ -332,5 +328,3 @@ func (ep *logRouterExt) Names() []string {
 	}
 	return names
 }
-
-
