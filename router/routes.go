@@ -81,10 +81,22 @@ func (rm *RouteManager) AddFromUri(uri string) error {
 	if err != nil {
 		return err
 	}
-	r := &Route{
-		Address: u.Host,
-		Adapter: u.Scheme,
-		Options: make(map[string]string),
+
+	var r *Route
+
+	switch u.Scheme {
+	case "file":
+		r = &Route{
+			Address: u.Path,
+			Adapter: u.Scheme,
+			Options: make(map[string]string),
+		}
+	default:
+		r = &Route{
+			Address: u.Host,
+			Adapter: u.Scheme,
+			Options: make(map[string]string),
+		}
 	}
 	if u.RawQuery != "" {
 		params, err := url.ParseQuery(u.RawQuery)

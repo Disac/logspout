@@ -80,22 +80,13 @@ func (p *LogsPump) Name() string {
 }
 
 func (p *LogsPump) Setup() error {
-	var err error
-	p.client, err = docker.NewClientFromEnv()
-	return err
-}
-
-func (p *LogsPump) rename(event *docker.APIEvents) {
-	p.mu.Lock()
-	defer p.mu.Unlock()
-	container, err := p.client.InspectContainer(event.ID)
-	assert(err, "pump")
-	pump, ok := p.pumps[normalID(event.ID)]
-	if !ok {
-		debug("pump.rename(): ignore: pump not found, state:", container.State.StateString())
-		return
+	client, err := docker.NewClient(
+		getopt("DOCKER_HOST", "unix:///var/run/docker.sock"))
+	if err != nil {
+		return err
 	}
-	pump.container.Name = container.Name
+	p.client = client
+	return nil
 }
 
 func (p *LogsPump) Run() error {
@@ -115,12 +106,10 @@ func (p *LogsPump) Run() error {
 		return err
 	}
 	for event := range events {
-		debug("pump.Run() event:", normalID(event.ID), event.Status)
+		debug("pump: event:", normalID(event.ID), event.Status)
 		switch event.Status {
 		case "start", "restart":
 			go p.pumpLogs(event, true)
-		case "rename":
-			go p.rename(event)
 		case "die":
 			go p.update(event)
 		}
@@ -133,11 +122,11 @@ func (p *LogsPump) pumpLogs(event *docker.APIEvents, backlog bool) {
 	container, err := p.client.InspectContainer(id)
 	assert(err, "pump")
 	if container.Config.Tty {
-		debug("pump.pumpLogs():", id, "ignored: tty enabled")
+		debug("pump:", id, "ignored: tty enabled")
 		return
 	}
 	if ignoreContainer(container) {
-		debug("pump.pumpLogs():", id, "ignored: environ ignore")
+		debug("pump:", id, "ignored: environ ignore")
 		return
 	}
 	var tail string
@@ -152,7 +141,7 @@ func (p *LogsPump) pumpLogs(event *docker.APIEvents, backlog bool) {
 	p.pumps[id] = newContainerPump(container, outrd, errrd)
 	p.mu.Unlock()
 	p.update(event)
-	debug("pump.pumpLogs():", id, "started")
+	debug("pump:", id, "started")
 	go func() {
 		err := p.client.Logs(docker.LogsOptions{
 			Container:    id,
@@ -164,7 +153,7 @@ func (p *LogsPump) pumpLogs(event *docker.APIEvents, backlog bool) {
 			Tail:         tail,
 		})
 		if err != nil {
-			debug("pump.pumpLogs():", id, "stopped:", err)
+			debug("pump:", id, "stopped:", err)
 		}
 		outwr.Close()
 		errwr.Close()
@@ -179,11 +168,11 @@ func (p *LogsPump) update(event *docker.APIEvents) {
 	defer p.mu.Unlock()
 	pump, pumping := p.pumps[normalID(event.ID)]
 	if pumping {
-		for r := range p.routes {
+		for r, _ := range p.routes {
 			select {
 			case r <- &update{event, pump}:
 			case <-time.After(time.Second * 1):
-				debug("pump.update(): route timeout, dropping")
+				debug("pump: route timeout, dropping")
 				defer delete(p.routes, r)
 			}
 		}
@@ -258,7 +247,7 @@ func newContainerPump(container *docker.Container, stdout, stderr io.Reader) *co
 			line, err := buf.ReadString('\n')
 			if err != nil {
 				if err != io.EOF {
-					debug("pump.newContainerPump():", normalID(container.ID), source+":", err)
+					debug("pump:", normalID(container.ID), source+":", err)
 				}
 				return
 			}
@@ -285,7 +274,7 @@ func (cp *containerPump) send(msg *Message) {
 		select {
 		case logstream <- msg:
 		case <-time.After(time.Second * 1):
-			debug("pump.send(): send timeout, closing")
+			debug("pump: send timeout, closing")
 			// normal call to remove() triggered by
 			// route.Closer() may not be able to grab
 			// lock under heavy load, so we delete here
